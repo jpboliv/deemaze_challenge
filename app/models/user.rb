@@ -9,6 +9,7 @@ class User < ApplicationRecord
   after_create :welcome_send
   def welcome_send
     WelcomeMailer.welcome_send(self).deliver
+    redirect_to root_path, alert: "Thank you for the registration"
   end
 
 end

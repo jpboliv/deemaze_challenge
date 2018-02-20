@@ -1,5 +1,37 @@
-<%= @posts.each do |post|%>
-    <h1> <%= link_to post.description, post%> 
-<%end%>
-
-<%= link_to "Add new Todo ", new_post_path%>
+<% if user_signed_in? %>
+  <p id="intro">
+    Hello
+    <%= current_user.name %>
+    <br/>
+    <span>
+      What should you be doing?
+    </span>
+  </p>
+<% else %>
+  <p id="intro">
+    What should you be doing?
+    <br/>
+    <span>
+      Get some S$(!JF done!
+    </span>
+  </p>
+<% end %>
+<div id="posts">
+  <% @posts.each do |post| %>
+    <div class="post">
+      <div class="post_content">
+        <div class="title">
+          <h2>
+            <%= link_to post.description, post %>
+          </h2>
+        </div>
+        <div class="data clearfix">
+          <p class="username">
+            Created by
+            <%= post.user.name %>
+          </p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

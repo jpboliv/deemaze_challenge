@@ -12,12 +12,12 @@
     <header>
       <div class="wrapper clearfix">
         <div id="logo">
-          <%= link_to "Home", root_path %>
+          <%= link_to "DEEMAZE2DO's", root_path %>
         </div>
         <nav>
           <% if user_signed_in? %>
             <%= link_to current_user.name, edit_user_registration_path %>
-            <%= link_to "Add New Note", new_post_path, class: "button" %>
+            <%= link_to "Add New TODO", new_post_path, class: "button" %>
             <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
           <% else %>
             <%= link_to "Sign in", new_user_session_path %>
