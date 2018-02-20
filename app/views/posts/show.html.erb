@@ -4,7 +4,6 @@
 <p>Created by <%=@post.user.name %>, being done by: 
 <%=@post.owner%>
 </p>
-
 <% if @post.user == current_user %>
     <p><%= link_to "Already done?", post_path(@post), method: :delete, data: {confirm: "you sure you completed it?"} %></p>
 <%end%>
