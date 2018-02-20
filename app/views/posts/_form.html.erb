@@ -1,7 +1,6 @@
 <%= simple_form_for @post do |f| %>
     <%= f.input :title%>
     <%= f.input :description %>
-
     <%= f.collection_select :owner, @owners, :name, :name%>
     <%= f.submit 'Save' %>
 <% end %>   
