@@ -12,6 +12,7 @@ class PostsController < ApplicationController
 
     def new
         @post = current_user.posts.build
+        @owners = User.all
     end
     
     def create
@@ -43,6 +44,6 @@ class PostsController < ApplicationController
     end
 
     def post_params
-        params.require(:post).permit(:title,:description)
+        params.require(:post).permit(:title,:description,:owner)
     end
 end
