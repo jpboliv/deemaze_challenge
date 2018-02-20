@@ -1,0 +1,5 @@
+<%= @posts.each do |post|%>
+    <h1> <%= link_to post.description, post%> 
+<%end%>
+
+<%= link_to "Add new Todo ", new_post_path%>

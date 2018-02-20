@@ -1,0 +1,4 @@
+<h1><%= @post.description%> </h1>
+
+<%= link_to "Delete note", post_path(@post), method: :delete, data: {confirm: "Are you sure?"} %>
+<%= link_to "Home", root_path%>
