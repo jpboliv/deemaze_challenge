@@ -1,6 +1,10 @@
 
 <h2> Description </h2>
 <h1><%= @post.description%> </h1>
-<p>Created by <%=@post.user.name %></p>
+<p>Created by <%=@post.user.name %>, being done by: 
+<%=@post.owner%>
+</p>
 
-<p><%= link_to "Already done?", post_path(@post), method: :delete, data: {confirm: "you sure you completed it?"} %></p>
+<% if @post.user == current_user %>
+    <p><%= link_to "Already done?", post_path(@post), method: :delete, data: {confirm: "you sure you completed it?"} %></p>
+<%end%>
