@@ -1,5 +1,7 @@
-<h1><%= @post.description%> </h1>
-<p><%=@post.user.name %></p>
 
-<%= link_to "Delete note", post_path(@post), method: :delete, data: {confirm: "Are you sure?"} %>
+<h2> Description </h2>
+<h1><%= @post.description%> </h1>
+<p>Created by <%=@post.user.name %></p>
+
+<p>Already Done? </p><%= link_to "Delete note", post_path(@post), method: :delete, data: {confirm: "Are you sure?"} %>
 <%= link_to "Home", root_path%>
