@@ -21,6 +21,12 @@ class PostsController < ApplicationController
     def create
         @post = current_user.posts.build(post_params)
         if @post.save
+            #Create the notifications
+            user = @post.owner
+            @user = User.find_by_name(user)
+            puts @user.name
+            puts current_user.id
+            Notification.create(recipient: @user, actor: current_user, action: "posted", notifiable: @post)
             redirect_to @post
         else
             render 'new'
@@ -40,6 +46,8 @@ class PostsController < ApplicationController
         redirect_to root_path
     end
 
+   
+    
     private 
     def find_post
         @post = Post.find(params[:id])

@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180220152658) do
+ActiveRecord::Schema.define(version: 20180220174537) do
+
+  create_table "notifications", force: :cascade do |t|
+    t.integer "recipient_id"
+    t.integer "actor_id"
+    t.datetime "read_at"
+    t.string "action"
+    t.integer "notifiable_id"
+    t.string "notifiable_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "posts", force: :cascade do |t|
     t.string "description"

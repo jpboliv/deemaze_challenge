@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :posts
+  has_many :notifications, foreign_key: :recipient_id
 
   after_create :welcome_send
   def welcome_send

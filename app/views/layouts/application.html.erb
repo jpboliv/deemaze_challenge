@@ -7,7 +7,6 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
     <header>
       <div class="wrapper clearfix">
@@ -17,7 +16,7 @@
         <nav>
           <% if user_signed_in? %>
             <%= link_to current_user.name, edit_user_registration_path %>
-            <%= link_to "Add New TODO", new_post_path, class: "button" %>
+            <%= link_to "Create Task", new_post_path, class: "button" %>
             <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
           <% else %>
             <%= link_to "Sign in", new_user_session_path %>
@@ -26,10 +25,8 @@
         </nav>
       </div>
   </header>
-
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-
-    <%= yield %>
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+  <%= yield %>
   </body>
 </html>
